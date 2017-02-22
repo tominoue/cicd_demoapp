@@ -29,3 +29,9 @@ deploy:
         urls:
             - https://$$MANTL_CONTROL/marathon/v2/apps/class/tominoue8334/restart?force=true
 
+
+notify:
+    spark:
+        image: hpreston/drone-spark
+        auth_token: MjI2https://developer.ciscospark.com/getting-started.html#MmE4NTgtZDM1Yi00MGIzLTk5ZGMtNjZjYjNjMDBhMjljNTIwYzExYWEtZGJj
+        roomId: Y2lzY29zcGFyazovL3VzL1JPT00vYTNhNjA4YjAtZjQyYS0xMWU2LWEwMDItMWY2MWUxNDU5ZTcy
