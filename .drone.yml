@@ -9,14 +9,13 @@ build:
             - pip install -r requirements.txt
             - python testing.py
 
-
 publish:
     docker:
-        repo: tominoue8334/cicd_demoapp
+        repo: $$DOCKER_USERNAME/cicd_demoapp
         tag: latest
-        username: tominoue8334
-        password: Apple8334!
-        email: tominoue@cisco.com 
+        username: $$DOCKER_USERNAME
+        password: $$DOCKER_PASSWORD
+        email: $$DOCKER_EMAIL
 
 deploy:
     webhook:
@@ -24,14 +23,13 @@ deploy:
         skip_verify: true
         method: POST
         auth:
-            username: CICD1
-            password: CICD1
+            username: $$MANTL_USERNAME
+            password: $$MANTL_PASSWORD
         urls:
-            - https://$$MANTL_CONTROL/marathon/v2/apps/class/tominoue8334/restart?force=true
-
+            - https://$$MANTL_CONTROL/marathon/v2/apps/class/$$DOCKER_USERNAME/restart?force=true
 
 notify:
     spark:
         image: hpreston/drone-spark
-        auth_token: MjI2https://developer.ciscospark.com/getting-started.html#MmE4NTgtZDM1Yi00MGIzLTk5ZGMtNjZjYjNjMDBhMjljNTIwYzExYWEtZGJj
-        roomId: Y2lzY29zcGFyazovL3VzL1JPT00vYTNhNjA4YjAtZjQyYS0xMWU2LWEwMDItMWY2MWUxNDU5ZTcy
+        auth_token: $$SPARK_TOKEN
+        roomId: $$SPARK_ROOM 
